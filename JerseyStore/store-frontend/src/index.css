@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* 1. IMPORT HIGH-IMPACT SPORTS FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+@theme {
+  /* COLORS */
+  --color-jersey-pink: #f3a5b5;        
+  --color-jersey-rose: #e894a4;        
+  --color-stadium-gray: #f9f9f9;       
+  --color-pitch-black: #111111;        
+  --color-slate-muted: #64748b;        
+  
+  /* SHADOWS */
+  --shadow-jersey: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-glow: 0 0 20px rgba(243, 165, 181, 0.3);
+
+  /* KEYFRAMES */
+  --keyframes-points-pop: {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    20% { opacity: 1; transform: translateY(-20px) scale(1.2); }
+    80% { opacity: 1; transform: translateY(-40px) scale(1); }
+    100% { opacity: 0; transform: translateY(-60px); }
+  };
+
+  --keyframes-success-enter: {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  };
+
+  --keyframes-fade-in-up: {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  };
+
+  /* ANIMATION DEFINITIONS */
+  --animation-points-pop: points-pop 1.5s ease-out forwards;
+  --animation-success-enter: success-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animation-fade-in-up: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. GLOBAL STYLING & SCROLLBAR */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-stadium-gray text-pitch-black antialiased font-['Inter'];
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 3px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+
+/* 3. UTILITY CLASSES */
+.animate-points { 
+  animation: var(--animation-points-pop); 
+}
+
+.animate-success { 
+  animation: var(--animation-success-enter); 
+}
+
+.animate-fadeIn {
+  animation: var(--animation-fade-in-up);
+}
+
+/* 4. TYPOGRAPHY & COMPONENTS */
+h1, h2, h3 {
+  @apply font-['Anton'] tracking-wider uppercase text-pitch-black;
+}
+
+.luxury-text {
+  @apply font-['Playfair_Display'] italic capitalize;
+}
+
+.btn-primary {
+  @apply bg-jersey-pink text-white font-black uppercase tracking-widest text-[10px] py-4 px-8 rounded-full 
+         hover:bg-pitch-black hover:shadow-glow shadow-jersey transition-all active:scale-95 duration-300;
+}
+
+.jersey-card {
+  @apply bg-white border border-gray-100 rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
+}
+
+.label-muted {
+  @apply text-[9px] font-black uppercase tracking-[0.2em] text-slate-muted;
+}

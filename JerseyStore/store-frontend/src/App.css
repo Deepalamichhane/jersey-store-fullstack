@@ -1,0 +1,151 @@
+/* --- Jersey Arena Global Styles --- */
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* New Athletic Color Palette */
+  --brand-accent: #3C486B;      /* Deep Slate Blue (Main Action Color) */
+  --brand-accent-light: #4A5A85; /* Lighter Blue for Hovers */
+  --brand-black: #111111;       /* Pitch Black */
+  --brand-charcoal: #333333;    /* Professional Grey */
+  --brand-light: #F4F4F4;       /* Field Grey Background */
+  --brand-white: #ffffff;
+  
+  color-scheme: light;
+  color: var(--brand-charcoal);
+  background-color: var(--brand-white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: flex-start;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--brand-light);
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* --- Typography --- */
+
+h1, h2, h3, h4 {
+  /* "Anton" or "Oswald" are great Google Fonts for jerseys if you decide to import them */
+  font-family: 'serif'; 
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--brand-black);
+}
+
+.uppercase-tracking {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+}
+
+/* --- Logo Styling --- */
+
+.logo {
+  height: 4em;
+  padding: 1em;
+  transition: transform 300ms ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  /* Changed glow from pink to deep blue */
+  filter: drop-shadow(0 0 1em rgba(60, 72, 107, 0.3));
+}
+
+/* --- Global Elements --- */
+
+a {
+  font-weight: 600;
+  color: var(--brand-charcoal);
+  text-decoration: inherit;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--brand-accent);
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom button style for a jersey store */
+.btn-primary {
+  background-color: var(--brand-black);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-accent);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+/* --- Jersey Shop Components --- */
+
+/* Product Card Hover Effect */
+.product-card-container {
+  background: white;
+  border: 1px solid #eee;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.product-card-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 0px; /* Sharp corners for a more industrial sports feel */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-accent);
+}
+
+/* --- Animations --- */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
